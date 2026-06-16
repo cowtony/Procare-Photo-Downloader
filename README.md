@@ -11,7 +11,7 @@ Bulk-download all your child's photos and videos from ProCare, organized by mont
    `authorization: Bearer online_auth_xxxxxxxx`
 5. Copy the part after `Bearer `.
 
-Open `fetch_procare.sh` in any text editor and paste it into the `TOKEN=` line near the top:
+Open `fetch_procare.sh` in any text editor and paste it into the `TOKEN=` line 32:
 
 ```bash
 TOKEN="online_auth_PASTE_YOURS_HERE"
