@@ -10,7 +10,7 @@
 #   bash fetch_procare.sh 2024-08 2025-06
 #
 # 输出结构：
-#   <YYYY-MM>/
+#   downloads/<YYYY-MM>/
 #   ├── photos/   全部照片 (UUID.jpg)
 #   └── videos/   全部视频 (UUID.mp4 / .mov 等)
 #
@@ -29,7 +29,7 @@ set -e
 # 如果脚本报 401/403，去 ProCare 网页 → F12 Network → Fetch/XHR
 # 复制 'authorization: Bearer ...' 后面那串替换 TOKEN
 # ============================================================
-TOKEN="online_auth_afdhcWbiAmHSAuA8Ztakyz1m"
+TOKEN="online_auth_<YOUR_TOKEN>"
 ORIGIN="https://schools.procareconnect.com"
 PHOTOS_API="https://api-school.procareconnect.com/api/web/parent/photos/"
 VIDEOS_API="https://api-school.procareconnect.com/api/web/parent/videos/"
@@ -376,8 +376,8 @@ echo
 cur="$START_MONTH"
 while :; do
     echo "================ $cur ================"
-    download_photos_one_month "$cur" "${cur}/photos"
-    download_videos_one_month "$cur" "${cur}/videos"
+    download_photos_one_month "$cur" "downloads/${cur}/photos"
+    download_videos_one_month "$cur" "downloads/${cur}/videos"
     echo
 
     if [ "$cur" = "$END_MONTH" ]; then
